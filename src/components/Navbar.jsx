@@ -7,7 +7,6 @@ import cartIcon from "../assets/shopping-bag.png";
 
 const NAV_LINKS = [
   { name: "Home", href: "#home", active: true },
-  { name: "Shop", href: "#shop" },
   { name: "Collections", href: "#collections" },
   { name: "New Arrivals", href: "#new-arrivals", badge: "New" },
   { name: "About", href: "#about" },
