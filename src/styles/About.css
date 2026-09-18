@@ -1,0 +1,382 @@
+/* ==========================================================================
+   ABOUT SECTION STYLING (Vanilla CSS)
+   Sama Collection - Store Info, Map & Contact
+   ========================================================================== */
+
+.about-section {
+  padding: 80px 24px;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Section Header
+   -------------------------------------------------------------------------- */
+.about-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.about-eyebrow {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-rose-gold-dark);
+  background-color: var(--color-rose-gold-soft);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+}
+
+.about-title {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 4.5vw, 44px);
+  font-weight: 400;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.about-subtitle {
+  font-size: clamp(14px, 1.8vw, 16px);
+  color: var(--color-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   About Grid (Image + Details)
+   -------------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+/* Shop Image */
+.about-image-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+
+.about-shop-image {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-image-wrap:hover .about-shop-image {
+  transform: scale(1.03);
+}
+
+.about-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+  pointer-events: none;
+}
+
+.image-overlay-text {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------------------------
+   Store Details / Info Cards
+   -------------------------------------------------------------------------- */
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.store-name-block {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.store-name {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin: 0 0 4px;
+}
+
+.store-tagline {
+  font-size: 13.5px;
+  color: var(--color-secondary);
+  letter-spacing: 0.02em;
+}
+
+.about-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.info-card {
+  display: flex;
+  gap: 18px;
+  padding: 22px 20px;
+  background-color: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.info-card:hover {
+  border-color: rgba(194, 139, 110, 0.4);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-card-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-rose-gold-soft), rgba(194, 139, 110, 0.18));
+  border-radius: var(--radius-sm);
+  color: var(--color-rose-gold-dark);
+}
+
+.info-card-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.info-card-icon--whatsapp {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: #16a34a;
+}
+
+.info-card-content {
+  flex: 1;
+}
+
+.info-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary);
+  margin: 0 0 6px;
+}
+
+.info-card-value {
+  font-size: 14.5px;
+  color: var(--color-primary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.info-card-value--phone {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.info-card-action {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-rose-gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color var(--transition-fast);
+}
+
+.info-card-action:hover {
+  color: var(--color-primary);
+}
+
+/* WhatsApp CTA Button */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Store Hours */
+.store-hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 260px;
+}
+
+.hours-day {
+  font-size: 13.5px;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.hours-time {
+  font-size: 13.5px;
+  color: var(--color-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Google Map Section
+   -------------------------------------------------------------------------- */
+.about-map-section {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  background-color: var(--color-bg-page);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.map-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.map-external-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-rose-gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color var(--transition-fast);
+}
+
+.map-external-link:hover {
+  color: var(--color-primary);
+}
+
+.map-embed-wrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 40%; /* 5:2 aspect ratio */
+  background-color: var(--color-bg-page);
+}
+
+.map-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .about-section {
+    padding: 60px 16px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-shop-image {
+    min-height: 300px;
+  }
+
+  .map-embed-wrap {
+    padding-bottom: 56%; /* Taller on mobile */
+  }
+
+  .map-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-header {
+    margin-bottom: 36px;
+  }
+
+  .info-card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 16px;
+  }
+
+  .info-card-value--phone {
+    font-size: 18px;
+  }
+
+  .store-name {
+    font-size: 24px;
+  }
+
+  .map-embed-wrap {
+    padding-bottom: 70%;
+  }
+}
