@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Card from "./card";
 import "../styles/Collection.css";
 
@@ -157,6 +157,26 @@ const Collection = ({ onAddToCart }) => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [sortBy, setSortBy] = useState("featured");
   const [addedNotification, setAddedNotification] = useState(null);
+  const [productsData, setProductsData] = useState(PRODUCTS_DATA);
+
+  // Fetch products from API, fallback to hardcoded data
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("/api/products");
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            setProductsData(data);
+          }
+        }
+      } catch {
+        // API unavailable (local dev without serverless), keep hardcoded data
+      }
+    };
+    fetchProducts();
+  }, []);
+
 
   // Handle add to cart with toast notification
   const handleItemAdded = (product) => {
@@ -171,7 +191,7 @@ const Collection = ({ onAddToCart }) => {
 
   // Filter & Sort Logic
   const filteredProducts = useMemo(() => {
-    let result = PRODUCTS_DATA;
+    let result = productsData;
 
     if (activeCategory !== "All") {
       result = result.filter((p) => p.category === activeCategory);
@@ -187,7 +207,7 @@ const Collection = ({ onAddToCart }) => {
     }
 
     return sorted;
-  }, [activeCategory, sortBy]);
+  }, [activeCategory, sortBy, productsData]);
 
   return (
     <section className="collection-section" id="collection">
@@ -230,10 +250,10 @@ const Collection = ({ onAddToCart }) => {
               >
                 <span>{cat}</span>
                 {cat === "All" ? (
-                  <span className="tab-count">{PRODUCTS_DATA.length}</span>
+                  <span className="tab-count">{productsData.length}</span>
                 ) : (
                   <span className="tab-count">
-                    {PRODUCTS_DATA.filter((p) => p.category === cat).length}
+                    {productsData.filter((p) => p.category === cat).length}
                   </span>
                 )}
               </button>
