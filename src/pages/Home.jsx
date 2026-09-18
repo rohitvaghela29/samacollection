@@ -4,6 +4,8 @@ import Collection from "../components/Collection";
 import About from "../components/about";
 import "../styles/Home.css";
 
+
+
 const INITIAL_CART_ITEMS = [
   {
     id: 101,
